@@ -41,7 +41,7 @@ const msgErro = computed(() => {
 </script>
 
 <template>
-  <div v-if="mostrar">
+  <div v-if="mostrar" class="form">
     <p>nome: {{ nome }}</p>
     <p>email: {{ email }}</p>
     <p>Vocé é maior de idade</p>
@@ -63,9 +63,9 @@ const msgErro = computed(() => {
       <label for="dataNascimento">Data de nascimento</label>
       <input type="date" min="1923-01-01" max="2007-04-16" v-model="dataNascimento" required>
       <label for="email">E-mail:</label>
-      <input type="email" v-model="email" required>
+      <input type="email" v-model="email" required placeholder="E-mail">
       <label for="endereco">Qual seu endereço?</label>
-      <input type="text" v-model="endereco" minlength="3">
+      <input type="text" v-model="endereco" minlength="3" placeholder="Endereço" required>
       <label for="estado">Estado</label>
       <select v-model="estado" required>
         <option value="AC">ACRE</option>
@@ -99,17 +99,17 @@ const msgErro = computed(() => {
 
 
       <label for="cidade">Cidade:</label>
-      <input type="text" v-model="cidade" required>
+      <input type="text" v-model="cidade" required placeholder="Endereço">
       <label for="biografia">Biografia</label>
-      <textarea cols="30" rows="10" v-model="biografia"></textarea>
+      <textarea cols="30" rows="10" v-model="biografia" placeholder="Escreva sua Biografia"></textarea>
       <label for="hobbies">Hobbies</label>
-      <input type="text" v-model="hobbies" required>
+      <input type="text" v-model="hobbies" required placeholder="Hobbies">
       <label for="linguagemProgramacao">linguagens De Programação</label>
-      <input type="text" v-model="linguagensProgramacao" required>
+      <input type="text" v-model="linguagensProgramacao" required placeholder="Linguagens de Programação">
       <label for="senha01">Senha:</label>
-      <input type="password" v-model="senha01" required>
+      <input type="password" v-model="senha01" required placeholder="Escreva sua Senha">
       <label for="senha02">Confirme sua senha:</label>
-      <input type="password" v-model="senha02" required>
+      <input type="password" v-model="senha02" required placeholder="Confirme sua Senha">
       <div>
         <p class="erro">{{ msgErro }}
         </p>
@@ -117,6 +117,7 @@ const msgErro = computed(() => {
       <button type="submit">Enviar</button>
     </form>
   </div>
+
 </template>
 
 <style scoped>
@@ -124,17 +125,28 @@ const msgErro = computed(() => {
   color: red;
   font-weight: bolder;
 }
-
+input{
+  border-radius: 7px;
+}
 .form {
   display: grid;
   grid-template-columns: 1fr;
-  width: 450px;
-  height: 800px;
-}
-
-.form {
+  width: 400px;
+  height: 600px;
   background-color: rgb(0, 255, 149);
-  padding: 40px;
+  padding: 15px;
   border-radius: 10px;
+}
+button{
+  border-radius: 7px;
+}
+select{
+  border-radius: 7px;
+}
+textarea{
+  border-radius: 7px;
+}
+::placeholder{
+  color: black;
 }
 </style>
